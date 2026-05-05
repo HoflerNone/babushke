@@ -1,0 +1,35 @@
+﻿  GameField.cpp
+C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(225,34): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(228,35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(245,29): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(256,30): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(276,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+  Main.cpp
+C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(225,34): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "Main.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(228,35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "Main.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(245,29): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "Main.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(256,30): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "Main.cpp")
+  
+C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(276,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  (компиляция исходного файла "Main.cpp")
+  
+  Создание кода...
+  GameField.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  PingPong.vcxproj -> C:\Users\Student\Desktop\PingPong\x64\Debug\PingPong.exe
