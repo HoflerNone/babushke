@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="GameField.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainMenuPing.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +127,9 @@
     <ClInclude Include="GameField.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MainMenuPing.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Settings.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -133,6 +137,9 @@
   <ItemGroup>
     <EmbeddedResource Include="GameField.resx">
       <DependentUpon>GameField.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuPing.resx">
+      <DependentUpon>MainMenuPing.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.h</DependentUpon>

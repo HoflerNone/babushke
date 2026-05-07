@@ -5,3 +5,7 @@ C:\Users\Student\Desktop\PingPong\PingPong\x64\Debug\PingPong.vcxproj.AssemblyRe
 C:\Users\Student\Desktop\PingPong\PingPong\x64\Debug\PingPong.GameField.resources
 C:\Users\Student\Desktop\PingPong\PingPong\x64\Debug\PingPong.vcxproj.GenerateResource.cache
 C:\Users\Student\Desktop\PingPong\PingPong\x64\Debug\PingPong.Settings.resources
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\x64\Debug\PingPong.vcxproj.AssemblyReference.cache
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\x64\Debug\PingPong.GameField.resources
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\x64\Debug\PingPong.Settings.resources
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\x64\Debug\PingPong.vcxproj.GenerateResource.cache

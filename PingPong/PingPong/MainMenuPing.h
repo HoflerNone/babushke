@@ -1,0 +1,178 @@
+#include "GameField.h"
+#include "Settings.h"
+#pragma once
+
+namespace PingPong {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+
+	/// <summary>
+	/// —водка дл€ MainMenuPing
+	/// </summary>
+	public ref class MainMenuPing : public System::Windows::Forms::Form
+	{
+	public:
+		MainMenuPing(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: добавьте код конструктора
+			//
+		}
+
+	protected:
+		/// <summary>
+		/// ќсвободить все используемые ресурсы.
+		/// </summary>
+		~MainMenuPing()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+	private: System::Windows::Forms::PictureBox^ background;
+	private: System::Windows::Forms::Button^ gameButton;
+		   Settings^ settingsForm;
+		   GameField^ gameForm;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ obmanka;
+	private: System::Windows::Forms::Button^ settings;
+	private: System::Windows::Forms::Button^ button1;
+
+
+
+
+
+	protected:
+
+	protected:
+
+	protected:
+
+	private:
+		/// <summary>
+		/// ќб€зательна€ переменна€ конструктора.
+		/// </summary>
+		System::ComponentModel::Container ^components;
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
+		/// содержимое этого метода с помощью редактора кода.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainMenuPing::typeid));
+			this->background = (gcnew System::Windows::Forms::PictureBox());
+			this->gameButton = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->obmanka = (gcnew System::Windows::Forms::Button());
+			this->settings = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
+			this->SuspendLayout();
+			// 
+			// background
+			// 
+			this->background->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"background.BackgroundImage")));
+			this->background->Location = System::Drawing::Point(-216, -11);
+			this->background->Name = L"background";
+			this->background->Size = System::Drawing::Size(1005, 560);
+			this->background->TabIndex = 0;
+			this->background->TabStop = false;
+			// 
+			// gameButton
+			// 
+			this->gameButton->BackColor = System::Drawing::Color::Red;
+			this->gameButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.25F));
+			this->gameButton->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->gameButton->Location = System::Drawing::Point(201, 304);
+			this->gameButton->Name = L"gameButton";
+			this->gameButton->Size = System::Drawing::Size(382, 89);
+			this->gameButton->TabIndex = 1;
+			this->gameButton->Text = L"START GAME";
+			this->gameButton->UseVisualStyleBackColor = false;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::CornflowerBlue;
+			this->label1->Location = System::Drawing::Point(12, 21);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(118, 13);
+			this->label1->TabIndex = 2;
+			this->label1->Text = L"Players in Online: 2.000";
+			this->label1->Click += gcnew System::EventHandler(this, &MainMenuPing::label1_Click);
+			// 
+			// obmanka
+			// 
+			this->obmanka->BackColor = System::Drawing::Color::Black;
+			this->obmanka->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"obmanka.BackgroundImage")));
+			this->obmanka->Enabled = false;
+			this->obmanka->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.25F));
+			this->obmanka->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->obmanka->Location = System::Drawing::Point(228, 418);
+			this->obmanka->Name = L"obmanka";
+			this->obmanka->Size = System::Drawing::Size(331, 99);
+			this->obmanka->TabIndex = 3;
+			this->obmanka->Text = L"ONLINE GAME (IN WORKED)";
+			this->obmanka->UseVisualStyleBackColor = false;
+			// 
+			// settings
+			// 
+			this->settings->BackColor = System::Drawing::Color::Red;
+			this->settings->Location = System::Drawing::Point(647, 12);
+			this->settings->Name = L"settings";
+			this->settings->Size = System::Drawing::Size(125, 32);
+			this->settings->TabIndex = 4;
+			this->settings->Click += gcnew EventHandler(this, &MainMenuPing::OpenSettings);
+			this->settings->Text = L"SETTINGS";
+			this->settings->UseVisualStyleBackColor = false;
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->button1->Location = System::Drawing::Point(15, 506);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(92, 27);
+			this->button1->TabIndex = 5;
+			this->button1->Text = L"EXID";
+			this->button1->UseVisualStyleBackColor = false;
+			// 
+			// MainMenuPing
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(784, 561);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->settings);
+			this->Controls->Add(this->obmanka);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->gameButton);
+			this->Controls->Add(this->background);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Name = L"MainMenuPing";
+			this->Text = L"MainMenuPing";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->EndInit();
+			
+			settingsForm = nullptr;
+			
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
+		}
+
+		void OpenSettings(Object^ sender, EventArgs^ e)
+
+#pragma endregion
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
+}

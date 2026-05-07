@@ -1,3 +1,4 @@
+п»ї
 #include "Settings.h"
 #pragma once
 
@@ -11,7 +12,7 @@ namespace PingPong {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для GameField
+	/// Г‘ГўГ®Г¤ГЄГ  Г¤Г«Гї GameField
 	/// </summary>
 	public ref class GameField : public System::Windows::Forms::Form
 	{
@@ -64,7 +65,7 @@ namespace PingPong {
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// ГЋГ±ГўГ®ГЎГ®Г¤ГЁГІГј ГўГ±ГҐ ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГ¬Г»ГҐ Г°ГҐГ±ГіГ°Г±Г».
 		/// </summary>
 		~GameField()
 		{
@@ -76,14 +77,14 @@ namespace PingPong {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// ГЋГЎГїГ§Г ГІГҐГ«ГјГ­Г Гї ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г .
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// Г’Г°ГҐГЎГіГҐГ¬Г»Г© Г¬ГҐГІГ®Г¤ Г¤Г«Гї ГЇГ®Г¤Г¤ГҐГ°Г¦ГЄГЁ ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г  вЂ” Г­ГҐ ГЁГ§Г¬ГҐГ­ГїГ©ГІГҐ 
+		/// Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГҐ ГЅГІГ®ГЈГ® Г¬ГҐГІГ®Г¤Г  Г± ГЇГ®Г¬Г®Г№ГјГѕ Г°ГҐГ¤Г ГЄГІГ®Г°Г  ГЄГ®Г¤Г .
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -109,6 +110,11 @@ namespace PingPong {
 			settingsForm = nullptr;
 			gamePaused = false;
 
+			overlayPanel = gcnew Panel();
+			overlayPanel->BackColor = Color::FromArgb(180, 0, 0,0);
+			overlayPanel->Size = this->ClientSize;
+			overlayPanel->Location = Point(0, 0);
+			overlayPanel->Visible = false;
 
 			scoreLabel = gcnew Label();
 			scoreLabel->AutoSize = true;
@@ -117,18 +123,13 @@ namespace PingPong {
 			scoreLabel->BackColor = Color::Transparent;
 			scoreLabel->Location = Drawing::Point(350, 20);
 			scoreLabel->Text = L"0 : 0";
-			this->Controls->Add(scoreLabel);
-
-			overlayPanel = gcnew Panel();
-			overlayPanel->BackColor = Color::FromArgb(180, 0, 0, 0);
-			overlayPanel->Size = this->ClientSize;
-			overlayPanel->Location = Point(0, 0);
-			overlayPanel->Visible = false;
+			this->Controls->Add(scoreLabel); 
 
 			Label^ pauseLabel = gcnew Label();
 			pauseLabel->Text = L"PAUSED";
 			pauseLabel->Font = gcnew Drawing::Font(L"Arial", 50, FontStyle::Bold);
 			pauseLabel->ForeColor = Color::White;
+			pauseLabel->BackColor = Color::Transparent;
 			pauseLabel->AutoSize = true;
 			pauseLabel->Location = Point(250, 220);
 
@@ -136,7 +137,7 @@ namespace PingPong {
 			this->Controls->Add(overlayPanel);
 
 			this->ResumeLayout(false);
-			
+
 
 
 			rnd = gcnew Random();
@@ -172,6 +173,14 @@ namespace PingPong {
 			if (e->KeyCode == Keys::S)			keyS = true;
 			if (e->KeyCode == Keys::Up)			keyUp = true;
 			if (e->KeyCode == Keys::Down)		keyDown = true;
+			if (gamePaused) {
+				if (e->KeyCode == Keys::Space)		gamePaused = false;
+				overlayPanel->Visible = false;
+			}
+			else {
+				if (e->KeyCode == Keys::Space)		gamePaused = true;
+				overlayPanel->Visible = true;
+			}
 			e->SuppressKeyPress = true;
 		}
 
@@ -185,171 +194,173 @@ namespace PingPong {
 		void OnPaint(Object^ sender, PaintEventArgs^ e) {
 			Graphics^ graphics = e->Graphics;
 			graphics->Clear(Color::White);
-			
+
 			SolidBrush^ leftBrush = gcnew SolidBrush(leftPaddleColor);
 			SolidBrush^ rightBrush = gcnew SolidBrush(rightPaddleColor);
 			SolidBrush^ ballBrush = gcnew SolidBrush(ballColor);
-			
+
 			graphics->FillRectangle(leftBrush, left_paddle_x, static_cast<int>(left_paddle_y), paddle_width, paddle_height);
 			graphics->FillRectangle(rightBrush, right_paddle_x, static_cast<int>(right_paddle_y), paddle_width, paddle_height);
 			graphics->FillEllipse(ballBrush, static_cast<int>(ball_x), static_cast<int>(ball_y), ball_size, ball_size);
-			
+
 			delete leftBrush;
 			delete rightBrush;
 			delete ballBrush;
 		}
 
-		private: void OnPreviewKeyDown(Object^ sender, PreviewKeyDownEventArgs^ e) {
-			if (e->KeyCode == Keys::Up ||
-				e->KeyCode == Keys::Down ||
-				e->KeyCode == Keys::Left ||
-				e->KeyCode == Keys::Right) {
-				e->IsInputKey = true;
-			}
+	private: void OnPreviewKeyDown(Object^ sender, PreviewKeyDownEventArgs^ e) {
+		if (e->KeyCode == Keys::Up ||
+			e->KeyCode == Keys::Down ||
+			e->KeyCode == Keys::Left ||
+			e->KeyCode == Keys::Right) {
+			e->IsInputKey = true;
 		}
+	}
 
-		void gameLoop(Object^ sender, EventArgs^ e) {
+		   void gameLoop(Object^ sender, EventArgs^ e) {
 
-			if (gamePaused || settingsForm != nullptr && settingsForm->Visible) {
-				return;
-			}
+			   if (gamePaused || settingsForm != nullptr && settingsForm->Visible) {
+				   return;
+			   }
 
-			int paddle_move = 8;
-			if (keyW)	left_paddle_y -= paddle_move;
-			if (keyS)	left_paddle_y += paddle_move;
-			if (keyUp)	right_paddle_y -= paddle_move;
-			if (keyDown)right_paddle_y += paddle_move;
+			   int paddle_move = 8;
+			   if (keyW)	left_paddle_y -= paddle_move;
+			   if (keyS)	left_paddle_y += paddle_move;
+			   if (keyUp)	right_paddle_y -= paddle_move;
+			   if (keyDown)right_paddle_y += paddle_move;
 
-			if (left_paddle_y < 0) left_paddle_y = 0;
-			if (left_paddle_y > field_height - paddle_height)
-				left_paddle_y = field_height - paddle_height;
-			if (right_paddle_y < 0) right_paddle_y = 0;
-			if (right_paddle_y > field_height - paddle_height)
-				right_paddle_y = field_height - paddle_height;
+			   if (left_paddle_y < 0) left_paddle_y = 0;
+			   if (left_paddle_y > field_height - paddle_height)
+				   left_paddle_y = field_height - paddle_height;
+			   if (right_paddle_y < 0) right_paddle_y = 0;
+			   if (right_paddle_y > field_height - paddle_height)
+				   right_paddle_y = field_height - paddle_height;
 
-			ball_speed += 0.005f;
-			if (ball_speed > 8.f) ball_speed = 8.f;
-			ball_x += velocity_x * ball_speed;
-			ball_y += velocity_y * ball_speed;
+			   ball_speed += 0.005f;
+			   if (ball_speed > 8.f) ball_speed = 8.f;
+			   ball_x += velocity_x * ball_speed;
+			   ball_y += velocity_y * ball_speed;
 
-			if (ball_y <= 0 || ball_y >= field_height - ball_size)
-				velocity_y = -velocity_y;
+			   if (ball_y <= 0 || ball_y >= field_height - ball_size)
+				   velocity_y = -velocity_y;
 
-			if (ball_x <= left_paddle_x + paddle_width &&
-				ball_x >= left_paddle_x &&
-				ball_y + ball_size >= left_paddle_y &&
-				ball_y <= left_paddle_y + paddle_height
-				)
-				if (velocity_x < 0) {
-					velocity_x = -velocity_x;
-					ball_x = left_paddle_x + paddle_width;
-					adjustBallAngle(left_paddle_y);
-				}
+			   if (ball_x <= left_paddle_x + paddle_width &&
+				   ball_x >= left_paddle_x &&
+				   ball_y + ball_size >= left_paddle_y &&
+				   ball_y <= left_paddle_y + paddle_height
+				   )
+				   if (velocity_x < 0) {
+					   velocity_x = -velocity_x;
+					   ball_x = left_paddle_x + paddle_width;
+					   adjustBallAngle(left_paddle_y);
+				   }
 
-			if (ball_x + ball_size >= right_paddle_x &&
-				ball_x <= right_paddle_x + paddle_width &&
-				ball_y + ball_size >= right_paddle_y &&
-				ball_y <= right_paddle_y + paddle_height
-				)
-				if (velocity_x > 0) {
-					velocity_x = -velocity_x;
-					ball_x = right_paddle_x - ball_size;
-					adjustBallAngle(right_paddle_y);
-				}
+			   if (ball_x + ball_size >= right_paddle_x &&
+				   ball_x <= right_paddle_x + paddle_width &&
+				   ball_y + ball_size >= right_paddle_y &&
+				   ball_y <= right_paddle_y + paddle_height
+				   )
+				   if (velocity_x > 0) {
+					   velocity_x = -velocity_x;
+					   ball_x = right_paddle_x - ball_size;
+					   adjustBallAngle(right_paddle_y);
+				   }
 
-			if (ball_x < 0) {
-				++score_right;
-				resetBall();
-			}
-			if (ball_x + ball_size > field_width) {
-				++score_left;
-				resetBall();
-			}
+			   if (ball_x < 0) {
+				   ++score_right;
+				   resetBall();
+			   }
+			   if (ball_x + ball_size > field_width) {
+				   ++score_left;
+				   resetBall();
+			   }
 
-			scoreLabel->Text = score_left + L" : " + score_right;
+			   scoreLabel->Text = score_left + L" : " + score_right;
 
-			this->Invalidate();
-		}
+			   this->Invalidate();
+		   }
 
-		void adjustBallAngle(float paddle_pos) {
-			float hit_pos = ((ball_y + ball_size) / 2.f - paddle_pos) / paddle_height;
-			velocity_y = Math::Round(hit_pos - 0.5f) * 2.f;
-			if (velocity_y == 0) velocity_y = 1;
-		}
+		   void adjustBallAngle(float paddle_pos) {
+			   float hit_pos = ((ball_y + ball_size) / 2.f - paddle_pos) / paddle_height;
+			   velocity_y = Math::Round(hit_pos - 0.5f) * 2.f;
+			   if (velocity_y == 0) velocity_y = 1;
+		   }
 
-		void OpenSettings(Object^ sender, EventArgs^ e)
-		{
-			if (settingsForm == nullptr)
-				settingsForm = gcnew Settings();
+		   void MainMenu(Object^ sender, EventArgs^ e) {}
 
-			gamePaused = true;
-			timer->Enabled = false;
-			overlayPanel->Visible = true;
+		   void OpenSettings(Object^ sender, EventArgs^ e)
+		   {
+			   if (settingsForm == nullptr)
+				   settingsForm = gcnew Settings();
 
-			settingsForm->Owner = this;
-			settingsForm->SettingsChanged = false;
-			settingsForm->btnApply->Enabled = false;
+			   gamePaused = true;
+			   timer->Enabled = false;
+			   overlayPanel->Visible = true;
 
-			System::Windows::Forms::DialogResult result = settingsForm->ShowDialog();
+			   settingsForm->Owner = this;
+			   settingsForm->SettingsChanged = false;
+			   settingsForm->btnApply->Enabled = false;
 
-			this->ActiveControl = nullptr;
-			this->Focus();
+			   System::Windows::Forms::DialogResult result = settingsForm->ShowDialog();
 
-			if (result == System::Windows::Forms::DialogResult::OK && settingsForm->SettingsChanged)
-			{
-				ApplySettings();
-				initGame();
-			}
+			   this->ActiveControl = nullptr;
+			   this->Focus();
 
-			gamePaused = false;
-			overlayPanel->Visible = false;
-			timer->Enabled = true;
-		}
+			   if (result == System::Windows::Forms::DialogResult::OK && settingsForm->SettingsChanged)
+			   {
+				   ApplySettings();
+				   initGame();
+			   }
 
-		void ApplySettings()
-		{
-			if (settingsForm == nullptr) return;
+			   gamePaused = false;
+			   overlayPanel->Visible = false;
+			   timer->Enabled = true;
+		   }
 
-			String^ txt;
+		   void ApplySettings()
+		   {
+			   if (settingsForm == nullptr) return;
 
-			txt = settingsForm->leftColorBox->Text->Trim();
-			if (!String::IsNullOrEmpty(txt))
-			{
-				leftPaddleColor = Color::FromName(txt);
-				if (leftPaddleColor.IsEmpty)
-					leftPaddleColor = ColorTranslator::FromHtml(txt);
-			}
+			   String^ txt;
 
-			txt = settingsForm->rightColorBox->Text->Trim();
-			if (!String::IsNullOrEmpty(txt))
-			{
-				rightPaddleColor = Color::FromName(txt);
-				if (rightPaddleColor.IsEmpty)
-					rightPaddleColor = ColorTranslator::FromHtml(txt);
-			}
+			   txt = settingsForm->leftColorBox->Text->Trim();
+			   if (!String::IsNullOrEmpty(txt))
+			   {
+				   leftPaddleColor = Color::FromName(txt);
+				   if (leftPaddleColor.IsEmpty)
+					   leftPaddleColor = ColorTranslator::FromHtml(txt);
+			   }
 
-			txt = settingsForm->ballColorBox->Text->Trim();
-			if (!String::IsNullOrEmpty(txt))
-			{
-				ballColor = Color::FromName(txt);
-				if (ballColor.IsEmpty)
-					ballColor = ColorTranslator::FromHtml(txt);
-			}
+			   txt = settingsForm->rightColorBox->Text->Trim();
+			   if (!String::IsNullOrEmpty(txt))
+			   {
+				   rightPaddleColor = Color::FromName(txt);
+				   if (rightPaddleColor.IsEmpty)
+					   rightPaddleColor = ColorTranslator::FromHtml(txt);
+			   }
 
-			paddle_height = settingsForm->leftSize->Value * 5;
-			ball_size = settingsForm->ballSize->Value;
+			   txt = settingsForm->ballColorBox->Text->Trim();
+			   if (!String::IsNullOrEmpty(txt))
+			   {
+				   ballColor = Color::FromName(txt);
+				   if (ballColor.IsEmpty)
+					   ballColor = ColorTranslator::FromHtml(txt);
+			   }
 
-			txt = settingsForm->ballSpeedBox->Text->Trim();
-			if (!String::IsNullOrEmpty(txt))
-			{
-				try {
-					ball_speed = Convert::ToSingle(txt);
-				}
-				catch (...) {}
-			}
+			   paddle_height = settingsForm->leftSize->Value * 5;
+			   ball_size = settingsForm->ballSize->Value;
 
-			this->Invalidate();
-		}
+			   txt = settingsForm->ballSpeedBox->Text->Trim();
+			   if (!String::IsNullOrEmpty(txt))
+			   {
+				   try {
+					   ball_speed = Convert::ToSingle(txt);
+				   }
+				   catch (...) {}
+			   }
+
+			   this->Invalidate();
+		   }
 #pragma endregion
 	};
 }

@@ -24,12 +24,18 @@
     <ClCompile Include="Settings.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuPing.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameField.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Settings.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuPing.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

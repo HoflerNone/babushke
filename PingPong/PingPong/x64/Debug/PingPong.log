@@ -1,35 +1,62 @@
 ﻿  GameField.cpp
-C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(225,34): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  (компиляция исходного файла "GameField.cpp")
-  
-C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(228,35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  (компиляция исходного файла "GameField.cpp")
-  
-C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(245,29): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  (компиляция исходного файла "GameField.cpp")
-  
-C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(256,30): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  (компиляция исходного файла "GameField.cpp")
-  
-C:\Users\Student\Desktop\PingPong\PingPong\GameField.h(276,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-  (компиляция исходного файла "GameField.cpp")
-  
   Main.cpp
-C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(225,34): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(233,37): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(236,38): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(253,32): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(264,33): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(284,48): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  (компиляция исходного файла "GameField.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\Gamefield.h(233,37): warning C4244: =: преобразование "int" в "float", возможна потеря данных
   (компиляция исходного файла "Main.cpp")
   
-C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(228,35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\Gamefield.h(236,38): warning C4244: =: преобразование "int" в "float", возможна потеря данных
   (компиляция исходного файла "Main.cpp")
   
-C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(245,29): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\Gamefield.h(253,32): warning C4244: =: преобразование "int" в "float", возможна потеря данных
   (компиляция исходного файла "Main.cpp")
   
-C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(256,30): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\Gamefield.h(264,33): warning C4244: =: преобразование "int" в "float", возможна потеря данных
   (компиляция исходного файла "Main.cpp")
   
-C:\Users\Student\Desktop\PingPong\PingPong\Gamefield.h(276,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\Gamefield.h(284,48): warning C4244: =: преобразование "double" в "int", возможна потеря данных
   (компиляция исходного файла "Main.cpp")
+  
+  MainMenuPing.cpp
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(233,37): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "MainMenuPing.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(236,38): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "MainMenuPing.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(253,32): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "MainMenuPing.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(264,33): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "MainMenuPing.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\GameField.h(284,48): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  (компиляция исходного файла "MainMenuPing.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\MainMenuPing.h(131,63): error C2039: "OpenSettings": не является членом "PingPong::MainMenuPing".
+  (компиляция исходного файла "MainMenuPing.cpp")
+      C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\MainMenuPing.h(17,19):
+       см. объявление "PingPong::MainMenuPing"
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\MainMenuPing.h(131,63): error C2065: OpenSettings: необъявленный идентификатор
+  (компиляция исходного файла "MainMenuPing.cpp")
+  
+C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\MainMenuPing.h(131,47): error C3924: ошибка в аргументе #1 вызова конструктора делегата "System::EventHandler":
+  (компиляция исходного файла "MainMenuPing.cpp")
+      C:\Users\Student\Desktop\babushke-main\PingPong\PingPong\MainMenuPing.h(131,47):
+      требуется указатель на функцию-член
   
   Создание кода...
-  GameField.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  PingPong.vcxproj -> C:\Users\Student\Desktop\PingPong\x64\Debug\PingPong.exe
